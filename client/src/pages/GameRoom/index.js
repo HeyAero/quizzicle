@@ -45,11 +45,13 @@ const GameRoom = () => {
           dispatch(allNotReady())
           setCurrentQuestion(q => q + 1)
         } else {
-          axios({
+          console.log(answers);
+          console.log(socket.socket.id);
+          setTimeout(axios({
             method: 'post',
             url: `http://localhost:3000/games/${id}/players/${socket.socket.id}/answers`,
             data: answers
-          });
+          }), Math.random * 1000);
           setTimeout(() => history.push(`/results/${id}`),3000)
         }
       }

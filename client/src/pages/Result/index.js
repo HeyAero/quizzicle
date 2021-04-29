@@ -22,8 +22,7 @@ const Result = () => {
             let { data } = await axios.get(`http://localhost:3000/games/${id}/results`);
             setResults(data.data)
             setScores(data.scores)
-            console.log(data.scores)
-            console.log(data.data)
+            console.log(data)
             setLoading(false)
           } catch (err) {
             setLoading(false)
@@ -39,8 +38,8 @@ const Result = () => {
 
       const answersList = results.map((result, i) => {
         return (
-          <div key={i}>
-            <div>{renderHTML(result.question)}</div>
+          <div className="" key={i}>
+            <h5>{renderHTML(result.question)}</h5>
             <ul>
               {result.all_answers.map((answer, j) => (
                 <li

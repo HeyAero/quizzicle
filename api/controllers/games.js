@@ -59,7 +59,9 @@ router.post('/', async (req, res) => {
 
 router.post('/:id/players/:player', async (req, res) => {
     try {
+        console.log("PLAYER: "+req.params.player)
         const game = await Game.addPlayers(req.params.id, req.params.player)
+        console.log(game);
         res.status(200).json(game)
     } catch(err) {
         console.error(err);

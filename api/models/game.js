@@ -71,7 +71,7 @@ class Game {
             try {
                 const db = await init();
                 const gameToUpdate = await db.collection('games').findOne({ _id: ObjectId(id) })
-                console.log(gameToUpdate)
+                console.log("LOOK HERE: "+gameToUpdate)
                 let players = gameToUpdate.players || []
                 let newPlayers = players.concat(player)
                 await db.collection('games').updateOne({ _id: ObjectId(id) },
